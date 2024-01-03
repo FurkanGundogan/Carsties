@@ -93,7 +93,7 @@ public class AuctionsController : ControllerBase
 
         if(auction == null) return NotFound();
 
-        if(auction.Seller != User.Identity.Name) return Forbid("");
+        if(auction.Seller != User.Identity.Name) return Forbid();
 
         auction.Item.Make = updateAuctionDto.Make ?? auction.Item.Make;
         auction.Item.Model = updateAuctionDto.Model ?? auction.Item.Model;
@@ -118,7 +118,7 @@ public class AuctionsController : ControllerBase
         var auction = await _context.Auctions.FindAsync(id);
         if(auction == null) return NotFound();
 
-        if(auction.Seller != User.Identity.Name) return Forbid("");
+        if(auction.Seller != User.Identity.Name) return Forbid();
 
         _context.Auctions.Remove(auction);
 
