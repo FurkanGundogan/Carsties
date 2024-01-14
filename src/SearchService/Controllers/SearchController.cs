@@ -11,7 +11,7 @@ public class SearchController : ControllerBase
     public async Task<ActionResult<List<Item>>> SearchItems([FromQuery] SearchParams searchParams){
 
         var query = DB.PagedSearch<Item, Item>();
-        query.Sort(x=> x.Ascending(a => a.Make));
+        //query.Sort(x=> x.Ascending(a => a.Make));
 
         if(!string.IsNullOrEmpty(searchParams.searchTerm)){
             query.Match(Search.Full,searchParams.searchTerm).SortByTextScore();
