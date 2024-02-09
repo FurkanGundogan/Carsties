@@ -5,6 +5,7 @@ WORKDIR /app
 # Copy only the necessary files for restoring dependencies
 COPY Carsties.sln .
 COPY src/AuctionService/AuctionService.csproj src/AuctionService/
+COPY src/BiddingService/BiddingService.csproj src/BiddingService/
 COPY src/Contracts/Contracts.csproj src/Contracts/
 COPY src/SearchService/SearchService.csproj src/SearchService/
 COPY src/IdentityService/IdentityService.csproj src/IdentityService/
