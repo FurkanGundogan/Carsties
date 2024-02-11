@@ -6,6 +6,7 @@ WORKDIR /app
 COPY Carsties.sln .
 COPY src/AuctionService/AuctionService.csproj src/AuctionService/
 COPY src/BiddingService/BiddingService.csproj src/BiddingService/
+COPY src/NotificationService/NotificationService.csproj src/NotificationService/
 COPY src/Contracts/Contracts.csproj src/Contracts/
 COPY src/SearchService/SearchService.csproj src/SearchService/
 COPY src/IdentityService/IdentityService.csproj src/IdentityService/

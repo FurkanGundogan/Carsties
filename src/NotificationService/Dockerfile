@@ -19,7 +19,7 @@ RUN dotnet restore
 COPY . .
 
 # Build the application
-WORKDIR /app/src/SearchService
+WORKDIR /app/src/NotificationService
 RUN dotnet publish -c Release -o /app/src/out
 
 # Stage 2: Build the runtime image
@@ -28,4 +28,4 @@ WORKDIR /app
 COPY --from=build /app/src/out .
 
 # Set the entry point for the application
-ENTRYPOINT ["dotnet", "SearchService.dll"]
+ENTRYPOINT ["dotnet", "NotificationService.dll"]
