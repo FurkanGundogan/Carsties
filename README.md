@@ -6,8 +6,8 @@
 + Identity Service :ok:
 + Gateway :ok:
 + Dockerizing :ok:
-+ NextJS Web App ⏱️ %70
++ NextJS Web App :ok:
 + Bid Service :ok:
-+ Notification Service ⏱️
++ Notification Service :ok:
 + Kubernetes ⏱️
 ![image](https://github.com/FurkanGundogan/Carsties/assets/43653193/d8f7c4be-3e38-4679-b755-b9e9e65d3739)
