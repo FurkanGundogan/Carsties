@@ -1,5 +1,7 @@
 'use client'
 
+import { useBidStore } from '@/hooks/useBidStore';
+import { usePathname } from 'next/navigation';
 import React from 'react'
 import Countdown, { zeroPad } from 'react-countdown';
 
@@ -10,6 +12,8 @@ type Props = {
 // Renderer callback with condition
 const renderer = ({ days, hours, minutes, seconds, completed }:
     { days: number, hours: number, minutes: number, seconds: number, completed: boolean }) => {
+
+
     return (
         <div className={`
         border-2
@@ -19,24 +23,33 @@ const renderer = ({ days, hours, minutes, seconds, completed }:
         ${completed ? 'bg-red-600' : (days === 0 && hours < 10) ? 'bg-amber-600' : 'bg-green-600'}
         `}>
             {
-                completed 
-                ? 
-                (<span>Auction finished</span>)
-                :
-                (
-                <span suppressHydrationWarning={true}>
-                    {zeroPad(days)}:{zeroPad(hours)}:{minutes}:{seconds}
-                </span>
-                )
+                completed
+                    ?
+                    (<span>Auction finished</span>)
+                    :
+                    (
+                        <span suppressHydrationWarning={true}>
+                            {zeroPad(days)}:{zeroPad(hours)}:{minutes}:{seconds}
+                        </span>
+                    )
             }
         </div>
     )
 };
 
 export default function CountdownTimer({ auctionEnd }: Props) {
+
+    const setOpen = useBidStore(state => state.setOpen)
+    const pathname = usePathname();
+    function auctionFinished(){
+        if(pathname.startsWith('/auctions/details')){
+            setOpen(false);
+        }
+    }
+
     return (
         <div>
-            <Countdown date={auctionEnd} renderer={renderer} />
+            <Countdown date={auctionEnd} renderer={renderer} onComplete={auctionFinished} />
         </div>
     )
 }

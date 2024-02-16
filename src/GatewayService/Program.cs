@@ -15,13 +15,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddCors(options => {
     options.AddPolicy("customPolicy", b=> {
-        b.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins(builder.Configuration["ClientApp"]);
+            b.WithOrigins("http://localhost:3000") // Sadece belirli bir origin için izin vermek
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials(); // Kimlik bilgileri ile istek gönderen istemcilere izin vermek
     });
 });
 
 var app = builder.Build();
 
-app.UseCors();
+app.UseCors("customPolicy");
 
 app.MapReverseProxy();
 

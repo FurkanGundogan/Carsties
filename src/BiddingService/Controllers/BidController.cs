@@ -75,6 +75,9 @@ public class BidController : ControllerBase
         await DB.SaveAsync(bid);
 
         /// Fire and forget event 
+        Console.WriteLine("--> Olusan bid:"+bid.ID);
+        Console.WriteLine("--> Publish olan BidPlaced: "+_mapper.Map<BidPlaced>(bid).Id);
+        Console.WriteLine("--> Ok BidDto: "+_mapper.Map<BidDto>(bid));
         await _publishEndpoint.Publish(_mapper.Map<BidPlaced>(bid));
 
         return Ok(_mapper.Map<BidDto>(bid));
