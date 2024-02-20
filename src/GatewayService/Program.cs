@@ -15,7 +15,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddCors(options => {
     options.AddPolicy("customPolicy", b=> {
-            b.WithOrigins("http://localhost:3000") // Sadece belirli bir origin için izin vermek
+            b.WithOrigins(builder.Configuration["ClientApp"]) // Sadece belirli bir origin için izin vermek
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials(); // Kimlik bilgileri ile istek gönderen istemcilere izin vermek

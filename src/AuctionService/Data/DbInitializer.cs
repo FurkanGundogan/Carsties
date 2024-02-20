@@ -65,7 +65,7 @@ public class DbInitializer
                 Id = Guid.Parse("bbab4d5a-8565-48b1-9450-5ac2a5c4a654"),
                 Status = Status.Live,
                 Seller = "bob",
-                AuctionEnd = DateTime.UtcNow.AddDays(4),
+                AuctionEnd = DateTime.UtcNow.AddMinutes(1),
                 Item = new Item
                 {
                     Make = "Ford",

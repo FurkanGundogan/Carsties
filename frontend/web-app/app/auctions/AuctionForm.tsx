@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 import { Auction } from '@/types';
 
 type Props = {
-    auction: Auction
+    auction?: Auction
 }
 
 export default function AuctionForm({ auction }: Props) {
@@ -29,7 +29,7 @@ export default function AuctionForm({ auction }: Props) {
             reset({ make, model, color, mileage, year });
         }
         setFocus('make')
-    }, [setFocus])
+    }, [setFocus, reset, auction])
 
 
     async function onSubmit(data: FieldValues) {
