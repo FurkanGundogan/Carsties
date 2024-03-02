@@ -28,7 +28,18 @@ builder.Services.AddMassTransit(x=>
 
 builder.Services.AddSignalR();
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("customPolicy", b=> {
+            b.WithOrigins(builder.Configuration["ClientApp"], "https://app.carsties.com") // Sadece belirli bir origin için izin vermek
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials(); // Kimlik bilgileri ile istek gönderen istemcilere izin vermek
+    });
+});
+
 var app = builder.Build();
+
+ app.UseCors("customPolicy");
 
 app.MapHub<NotificationHub>("/notifications");
 
