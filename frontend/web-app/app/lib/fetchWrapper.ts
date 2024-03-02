@@ -3,9 +3,10 @@ import { getTokenWorkaround } from "@/app/actions/authActions";
 const baseURL = process.env.API_URL;
 
 async function get(url: string) {
-    const requestOptions = {
+    const requestOptions : RequestInit= {
         method: 'GET',
-        headers: await getHeaders()
+        headers: await getHeaders(),
+        mode: 'cors'
     }
 
     const response = await fetch(baseURL + url, requestOptions);
@@ -15,10 +16,11 @@ async function get(url: string) {
 }
 
 async function post(url: string, body: {}) {
-    const requestOptions = {
+    const requestOptions : RequestInit = {
         method: 'POST',
         headers: await getHeaders(),
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        mode: 'cors'
     }
 
     const response = await fetch(baseURL + url, requestOptions);
@@ -26,10 +28,11 @@ async function post(url: string, body: {}) {
 }
 
 async function put(url: string, body: {}) {
-    const requestOptions = {
+    const requestOptions : RequestInit = {
         method: 'PUT',
         headers: await getHeaders(),
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        mode: 'cors'
     }
 
     const response = await fetch(baseURL + url, requestOptions);
@@ -37,9 +40,10 @@ async function put(url: string, body: {}) {
 }
 
 async function del(url: string) {
-    const requestOptions = {
+    const requestOptions : RequestInit= {
         method: 'DELETE',
-        headers: await getHeaders()
+        headers: await getHeaders(),
+        mode:'cors'
     }
 
     const response = await fetch(baseURL + url, requestOptions);
@@ -72,7 +76,7 @@ async function handleResponse(response: Response) {
     } else {
         const error = {
             status: response.status,
-            message: typeof data ==='string' ? data : response.statusText
+            message: typeof data ==='string' && data.length > 0 ?  data : response.statusText
         }
 
         return {error};
