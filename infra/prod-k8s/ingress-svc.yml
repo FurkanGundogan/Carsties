@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-svc
+  labels:
+    name: ingress-svc
+  annotations:  # Bu kısım eksikti, annotations altında CORS ile ilgili alanlar yer almalı.
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://app.carsties.com"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "Authorization, Origin, X-Requested-With, Content-Type, Accept"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - app.carsties.com
+      - api.carsties.com
+      secretName: carsties-app-new-tls
+  rules:
+  - host: app.carsties.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: webapp-clusterip
+            port: 
+              number: 3000
+  - host: api.carsties.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: gateway-clusterip
+            port: 
+              number: 80
