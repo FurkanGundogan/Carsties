@@ -8,7 +8,7 @@ on:
       - 'src/GatewayService/**'
 
 env:
-  REGISTRY_IMAGE: furuu1414/gateway-svc
+  REGISTRY_IMAGE: furu1414/gateway-svc
   DOCKERFILE: src/GatewayService/Dockerfile
   DEPLOYMENT_NAME: gateway-svc
 

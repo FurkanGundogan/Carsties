@@ -8,7 +8,7 @@ on:
       - 'src/NotificationService/**'
 
 env:
-  REGISTRY_IMAGE: furuu1414/notify-svc
+  REGISTRY_IMAGE: furu1414/notify-svc
   DOCKERFILE: src/NotificationService/Dockerfile
   DEPLOYMENT_NAME: notify-svc
 

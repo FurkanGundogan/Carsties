@@ -8,7 +8,7 @@ on:
       - 'frontend/web-app/**'
 
 env:
-  REGISTRY_IMAGE: furuu1414/web-app
+  REGISTRY_IMAGE: furu1414/web-app
   DOCKERFILE: frontend/web-app/Dockerfile
   DEPLOYMENT_NAME: webapp
 
