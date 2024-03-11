@@ -1,5 +1,6 @@
 ## Auction App Architecture
-Demo Website: https://app.carsties.xyz/
+#### Demo Website: https://app.carsties.xyz/
+Reference course: https://www.udemy.com/course/build-a-microservices-app-with-dotnet-and-nextjs-from-scratch/learn/lecture/39039182#overview
 
 + Auction Service :ok:
 + Search Service :ok:
