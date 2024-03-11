@@ -1,6 +1,18 @@
-## Auction App Architecture
+## Carties - Auction App
+
+        This is a project that i created by following a Udemy course to train myself about how to implement 
+        microservices with Docker & Kubernetes.
+
+        App features:
+          - user authentication and authorization
+          - auction creation and management
+          - bidding transactions
+          - search
+        
+ 
+ 
 #### Demo Website: https://app.carsties.xyz/
-Reference course: https://www.udemy.com/course/build-a-microservices-app-with-dotnet-and-nextjs-from-scratch/
+   Reference course: https://www.udemy.com/course/build-a-microservices-app-with-dotnet-and-nextjs-from-scratch/
 
 + Auction Service :ok:
 + Search Service :ok:
