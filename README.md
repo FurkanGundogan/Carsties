@@ -1,7 +1,7 @@
 ## Carsties - Auction App
 
-        This is a project that i created by following a Udemy course to train myself about how to implement 
-        microservices with Docker & Kubernetes.
+        This is a project that i created by following a Udemy course to train myself about 
+        how to implement microservices with Docker & Kubernetes.
 
         App features:
           - user authentication and authorization
